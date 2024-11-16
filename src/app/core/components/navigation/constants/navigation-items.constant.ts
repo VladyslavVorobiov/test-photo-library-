@@ -4,7 +4,7 @@ import { NavigationItem } from '../models';
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     title: 'Photos',
-    route: '/',
+    route: NavigationRoutes.Photos,
   },
   {
     title: 'Favorites',
