@@ -5,8 +5,10 @@ import {
   inject,
   OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PhotoItem } from 'core-api';
+import { NavigationRoutes } from 'core-enums';
 import { DataService } from './services';
 
 @Component({
@@ -20,11 +22,15 @@ import { DataService } from './services';
 })
 export class FavoritesComponent implements OnInit {
   #dataService: DataService = inject(DataService);
+  #router: Router = inject(Router);
+
   public photos$ = this.#dataService.data$;
 
   public ngOnInit(): void {
     this.#dataService.loadData();
   }
 
-  public onPhotoClick(photo: PhotoItem): void {}
+  public onPhotoClick(photo: PhotoItem): void {
+    this.#router.navigate([NavigationRoutes.Favorites, photo.url]);
+  }
 }

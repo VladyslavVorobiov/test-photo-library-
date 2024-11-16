@@ -37,10 +37,7 @@ export class FavoritePhotoService {
     return true;
   }
 
-  /**
-   * Remove item from array in localStorage
-   */
-  //  removeFromArray(key: string, item: string): boolean {
+  //  remove(url: string): boolean {
   //   try {
   //     const existingArray = this.getArray(key);
   //     const newArray = existingArray.filter(i => i !== item);
