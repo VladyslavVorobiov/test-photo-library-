@@ -1,4 +1,5 @@
 @let photos = (photos$ | async);
+@let loading = (loading$ | async);
 
 <div class="image-list">
     @for (photo of photos; track photo.id) {
@@ -6,6 +7,14 @@
             <img [attr.src]="photo.url" alt="Image">
         </figure>
       } @empty {
-        <p class="empty-content">No photos found. Please reload the page.</p>
+        @if (loading === false) {
+            <p class="empty-content">No photos found. Please reload the page.</p>
+        }
       }
 </div>
+
+@if (loading) {
+    <div class="loader-wrapper">
+      <mat-spinner [diameter]="50"></mat-spinner>
+    </div>
+  }
