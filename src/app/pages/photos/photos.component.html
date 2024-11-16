@@ -1,20 +1,11 @@
+@let photos = (photos$ | async);
+
 <div class="image-list">
-    <figure class="image-item">
-        <img src="https://random.imagecdn.app/500/500" alt="Image">
-    </figure>
-    <figure class="image-item">
-        <img src="https://fastly.picsum.photos/id/571/200/300.jpg?hmac=M2JAmSQct67FkQUX0_IWCUClgxf45dexs4oYKhpFDLA" alt="Image">
-    </figure>
-    <figure class="image-item">
-        <img src="https://fastly.picsum.photos/id/571/200/300.jpg?hmac=M2JAmSQct67FkQUX0_IWCUClgxf45dexs4oYKhpFDLA" alt="Image">
-    </figure>
-    <figure class="image-item">
-        <img src="https://fastly.picsum.photos/id/571/200/300.jpg?hmac=M2JAmSQct67FkQUX0_IWCUClgxf45dexs4oYKhpFDLA" alt="Image">
-    </figure>
-    <figure class="image-item">
-        <img src="https://fastly.picsum.photos/id/571/200/300.jpg?hmac=M2JAmSQct67FkQUX0_IWCUClgxf45dexs4oYKhpFDLA" alt="Image">
-    </figure>
-    <figure class="image-item">
-        <img src="https://fastly.picsum.photos/id/571/200/300.jpg?hmac=M2JAmSQct67FkQUX0_IWCUClgxf45dexs4oYKhpFDLA" alt="Image">
-    </figure>
+    @for (photo of photos; track photo.id) {
+        <figure class="image-item">
+            <img [attr.src]="photo.url" alt="Image">
+        </figure>
+      } @empty {
+        <p class="empty-content">No photos found. Please reload the page.</p>
+      }
 </div>
