@@ -21,7 +21,7 @@ export class DataService {
       .pipe(
         take(1),
         tap((result) => {
-          const data = result.map((url) => ({ id: url, url }));
+          const data = result.map((url) => ({ url }));
 
           this.#dataSubject.next([...this.#dataSubject.value, ...data]);
         }),

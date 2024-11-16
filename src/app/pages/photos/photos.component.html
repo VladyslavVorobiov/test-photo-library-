@@ -2,7 +2,7 @@
 @let loading = (loading$ | async);
 
 <div class="image-list">
-    @for (photo of photos; track photo.id) {
+    @for (photo of photos; track $index) {
         <figure class="image-item">
             <img [attr.src]="photo.url" alt="Image">
         </figure>

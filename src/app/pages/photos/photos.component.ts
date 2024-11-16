@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  HostListener,
   inject,
   OnInit,
 } from '@angular/core';
@@ -20,6 +21,16 @@ import { DataService } from './services';
   providers: [DataService],
 })
 export class PhotosComponent implements OnInit {
+  @HostListener('scroll', ['$event'])
+  onScroll(event: Event): void {
+    const photosElement = event.target as HTMLElement;
+    const scrollPosition = photosElement.scrollTop + photosElement.clientHeight;
+
+    if (scrollPosition >= photosElement.scrollHeight) {
+      this.#dataService.loadData();
+    }
+  }
+
   #dataService: DataService = inject(DataService);
   #loaderService = inject(LoaderService);
 
