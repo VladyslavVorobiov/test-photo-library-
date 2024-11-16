@@ -10,8 +10,8 @@ export const routes: Routes = [
   {
     path: NavigationRoutes.Favorites,
     loadComponent: () =>
-      import('./pages/favorities/favorities.component').then(
-        (c) => c.FavoritiesComponent
+      import('./pages/favorites/favorites.component').then(
+        (c) => c.FavoritesComponent
       ),
   },
   {

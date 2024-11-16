@@ -11,14 +11,14 @@ import { DataService } from './services';
 
 @Component({
   standalone: true,
-  selector: 'app-favorities',
-  templateUrl: './favorities.component.html',
-  styleUrl: './favorities.component.scss',
+  selector: 'app-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrl: './favorites.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [AsyncPipe],
   providers: [DataService],
 })
-export class FavoritiesComponent implements OnInit {
+export class FavoritesComponent implements OnInit {
   #dataService: DataService = inject(DataService);
   public photos$ = this.#dataService.data$;
 
