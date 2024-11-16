@@ -1,0 +1,45 @@
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-list {
+    padding: 12px 4px;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--light-grey);
+
+    & > li {
+        padding: 0;
+        list-style-type: none;
+    }
+}
+
+.navigation-link {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--font-color);
+
+    &:hover {
+        background-color: var(--blue-1);
+    }
+
+    &:focus,
+    &:active,
+    &:visited {
+        text-decoration: none;
+    }
+
+    &:active {
+        color: inherit;
+    }
+}
+
+.item-active {
+    background-color: var(--blue-2);
+}

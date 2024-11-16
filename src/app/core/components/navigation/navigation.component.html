@@ -1,0 +1,10 @@
+<nav>
+    <ul class="navigation-list">
+        <!-- For static collections that never change, we can use $index for this case -->
+        @for (item of navigationItems; track $index) {
+            <li>
+                <a class="navigation-link" routerLinkActive="item-active" [routerLink]="item.route">{{ item.title }}</a>
+            </li>
+          }
+    </ul>
+</nav>
