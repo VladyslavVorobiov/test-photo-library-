@@ -3,7 +3,7 @@
 
 <div class="image-list">
     @for (photo of photos; track $index) {
-        <figure class="image-item">
+        <figure class="image-item" (click)="onPhotoClick(photo)">
             <img [attr.src]="photo.url" alt="Image">
         </figure>
       } @empty {

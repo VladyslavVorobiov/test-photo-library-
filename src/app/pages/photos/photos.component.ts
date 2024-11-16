@@ -9,6 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LoaderService } from 'core-services';
 import { DataService } from './services';
+import { PhotoItem } from './models';
 
 @Component({
   standalone: true,
@@ -34,6 +35,10 @@ export class PhotosComponent implements OnInit {
 
   public ngOnInit(): void {
     this.#dataService.loadData();
+  }
+
+  public onPhotoClick(photo: PhotoItem): void {
+    this.#dataService.saveToFavorite(photo);
   }
 
   public onScroll(event: Event): void {
