@@ -1,1 +1,11 @@
-<p>favorities works!</p>
+@let photos = (photos$ | async);
+
+<div class="image-list">
+    @for (photo of photos; track $index) {
+        <figure class="image-item" (click)="onPhotoClick(photo)">
+            <img [attr.src]="photo.url" alt="Image">
+        </figure>
+      } @empty {
+            <p class="empty-content">No favorite photos yet</p>
+      }
+</div>

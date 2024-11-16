@@ -37,6 +37,20 @@ export class FavoritePhotoService {
     return true;
   }
 
+  /**
+   * Remove item from array in localStorage
+   */
+  //  removeFromArray(key: string, item: string): boolean {
+  //   try {
+  //     const existingArray = this.getArray(key);
+  //     const newArray = existingArray.filter(i => i !== item);
+  //     return this.saveArray(key, newArray);
+  //   } catch (error) {
+  //     console.error('Error removing from array in localStorage:', error);
+  //     return false;
+  //   }
+  // }
+
   #initStorage(): void {
     const storage = localStorage.getItem(FAVORITE_PHOTOS_KEY);
 

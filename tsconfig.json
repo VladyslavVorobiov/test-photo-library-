@@ -23,7 +23,7 @@
       "dom"
     ],
     "paths": {
-      "core-api": ["./src/app/core/api/services"],
+      "core-api": ["./src/app/core/api"],
       "core-services": ["./src/app/core/services"],
       "core-components": ["./src/app/core/components"],
       "core-enums": ["./src/app/core/enums"],

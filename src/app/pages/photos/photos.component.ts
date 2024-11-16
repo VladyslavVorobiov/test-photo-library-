@@ -7,9 +7,9 @@ import {
 import { AsyncPipe } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { PhotoItem } from 'core-api';
 import { LoaderService } from 'core-services';
 import { DataService } from './services';
-import { PhotoItem } from './models';
 
 @Component({
   standalone: true,

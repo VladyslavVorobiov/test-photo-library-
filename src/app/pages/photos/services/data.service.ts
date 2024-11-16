@@ -2,9 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, finalize, take, tap } from 'rxjs';
 
-import { FavoritePhotoService, PhotoLoaderService } from 'core-api';
+import { FavoritePhotoService, PhotoItem, PhotoLoaderService } from 'core-api';
 import { LoaderService } from 'core-services';
-import { PhotoItem } from '../models';
 
 @Injectable()
 export class DataService {
