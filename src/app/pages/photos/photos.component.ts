@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostListener,
   inject,
   OnInit,
 } from '@angular/core';
@@ -19,18 +18,14 @@ import { DataService } from './services';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [AsyncPipe, MatProgressSpinnerModule],
   providers: [DataService],
+  // We can achieve same with @HostListener('scroll', ['$event'])
+  // But Angular doc says: Always prefer using the host property over @HostBinding and @HostListener.
+  // These decorators exist exclusively for backwards compatibility.
+  host: {
+    '(scroll)': 'onScroll($event)',
+  },
 })
 export class PhotosComponent implements OnInit {
-  @HostListener('scroll', ['$event'])
-  onScroll(event: Event): void {
-    const photosElement = event.target as HTMLElement;
-    const scrollPosition = photosElement.scrollTop + photosElement.clientHeight;
-
-    if (scrollPosition >= photosElement.scrollHeight) {
-      this.#dataService.loadData();
-    }
-  }
-
   #dataService: DataService = inject(DataService);
   #loaderService = inject(LoaderService);
 
@@ -39,5 +34,14 @@ export class PhotosComponent implements OnInit {
 
   public ngOnInit(): void {
     this.#dataService.loadData();
+  }
+
+  public onScroll(event: Event): void {
+    const photosElement = event.target as HTMLElement;
+    const scrollPosition = photosElement.scrollTop + photosElement.clientHeight;
+
+    if (scrollPosition >= photosElement.scrollHeight) {
+      this.#dataService.loadData();
+    }
   }
 }
