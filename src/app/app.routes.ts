@@ -16,7 +16,7 @@ export const routes: Routes = [
   },
   {
     // Task description says: Single photo page located at /photos/:id path
-    // but it seems logical to have actual path /favorites/:id
+    // but it seems logical to have actual path at /favorites/:id
     // because we are going to show details of a photo from favorites
     path: `${NavigationRoutes.Favorites}/:id`,
     loadComponent: () =>
