@@ -13,6 +13,6 @@ export class DataService {
   public loadData(): void {
     const list = this.#favoritePhotoService.getList();
 
-    this.#dataSubject.next(list.map((url) => ({ url })));
+    this.#dataSubject.next(list);
   }
 }

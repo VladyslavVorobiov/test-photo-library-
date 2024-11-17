@@ -1,0 +1,17 @@
+:host {
+    display: block;
+    height: 100%;
+    padding: 16px;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}

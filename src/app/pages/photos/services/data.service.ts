@@ -23,7 +23,7 @@ export class DataService {
       .pipe(
         take(1),
         tap((result) => {
-          const data = result.map((url) => ({ url }));
+          const data = result.map((url) => ({ id: this.#generateId(), url }));
 
           this.#dataSubject.next([...this.#dataSubject.value, ...data]);
         }),
@@ -38,7 +38,7 @@ export class DataService {
   }
 
   public saveToFavorite(photo: PhotoItem): void {
-    const result = this.#favoritePhotoService.save(photo.url);
+    const result = this.#favoritePhotoService.save(photo);
 
     const message = result
       ? 'Photo saved to favorite'
@@ -47,5 +47,9 @@ export class DataService {
     this.#snackBar.open(message, 'Close', {
       duration: 2000,
     });
+  }
+
+  #generateId(): string {
+    return Math.random().toString(36).slice(2);
   }
 }

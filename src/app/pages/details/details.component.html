@@ -1,1 +1,7 @@
-<p>details works!</p>
+<figure class="details">
+    <img [attr.src]="photo?.url || ''" alt="Image">
+</figure>
+
+<div class="actions">
+    <button mat-flat-button (click)="onRemove()">Remove from favorites</button>
+</div>

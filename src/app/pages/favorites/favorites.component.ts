@@ -31,6 +31,6 @@ export class FavoritesComponent implements OnInit {
   }
 
   public onPhotoClick(photo: PhotoItem): void {
-    this.#router.navigate([NavigationRoutes.Favorites, photo.url]);
+    this.#router.navigate([NavigationRoutes.Favorites, photo.id]);
   }
 }
